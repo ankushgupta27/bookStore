@@ -1,0 +1,57 @@
+@model bookStore.Entities.BookTable
+@{}
+<style>
+    table,th,td{
+        border:1px solid red;
+    }
+</style>
+<h2 class="text-center">Book Information</h2>
+<table>
+    <thead>
+        <tr>
+            <th>
+              BOOk Name
+             
+                </th>
+                 <th>
+                category
+                </th>
+                 <th>
+              image
+                </th>
+                 <th>
+                 author
+                </th>
+                <th>
+               Publisher
+                </th>
+                 <th>
+             Description
+                </th>
+               
+               
+            </tr>
+    </thead>
+<tr>
+            <td> 
+                @Model.BookName
+                </td>
+                <td>
+                   @Model.Category
+                    </td>
+                      <td>
+                   <img src="~/Uploads/@Model.Image" height=20% width=20% alt="NO IMAGE FOUND" srcset="">
+                    </td>
+                      <td>
+                    @Model.Author
+                    </td>
+                     <td>
+                @Model.Publisher
+                </td>
+                <td>
+                    @Model.Description
+                    </td>
+                    
+                   
+          </tr>
+          </table>

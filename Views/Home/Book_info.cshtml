@@ -1,0 +1,72 @@
+@model IEnumerable<bookStore.Entities.BookTable>
+@{
+}
+<style>
+    table,th,td{
+        border:1px solid red;
+    }
+</style>
+<div class="text-center">
+  <h3>
+ List of books
+  </h3>
+ 
+</div>
+<table class="center">
+    <thead>
+        <tr>
+            <th>
+              BOOk Name
+             
+                </th>
+                 <th>
+                category
+                </th>
+                 <th>
+              image
+                </th>
+                 <th>
+                 author
+                </th>
+                <th>
+               Publisher
+                </th>
+                 <th>
+             Description
+                </th>
+               
+               
+            </tr>
+        </thead>
+        <tbody>
+ @foreach(var prod in Model)
+    {
+          <tr>
+            <td> 
+                 <a asp-controller="Home" asp-action="book_detail" asp-route-id="@prod.Id"> @prod.BookName</a> 
+                </td>
+                <td>
+                   @prod.Category
+                    </td>
+                      <td>
+                   <img src="~/Uploads/@prod.Image" height=20% width=20% alt="NO IMAGE FOUND" srcset="">
+                    </td>
+                      <td>
+                    @prod.Author
+                    </td>
+                     <td>
+                @prod.Publisher
+                </td>
+                <td>
+                    @prod.Description
+                    </td>
+                     <td>
+                        @Html.ActionLink("Edit","AddDetails",new{prod.Id,prod.BookName,prod.Category,prod.Image,prod.Author,prod.Publisher,prod.Description},new{@class="btn btn-success"})
+                    
+                        @Html.ActionLink("Delete","DeleteBook",new{prod.Id},new{@class="btn btn-danger"})
+                    </td>
+                   
+          </tr>
+                      }
+    </tbody>
+        </table>
